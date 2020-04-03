@@ -17,4 +17,10 @@
 		<folder>images</folder>
 		<folder>less</folder>
 	</files>
+	<positions>
+		<position>offcanvas</position>
+		<position>top</position>
+		<position>bottom</position>
+		<position>footer</position>
+	</positions>
 </extension>

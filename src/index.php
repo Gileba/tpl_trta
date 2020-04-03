@@ -25,8 +25,13 @@
 	<body class="<?php echo $pageclass ? htmlspecialchars($pageclass) : 'default'; ?>">
 		<div class="offcanvas"><jdoc:include type="modules" name="offcanvas" /></div>
 		<div class="container">
-			<jdoc:include type="message" />
-			<div class="component"><jdoc:include type="component" /></div>
+			<div class="top"><jdoc:include type="modules" name="top" /></div>
+			<div class="content">
+				<jdoc:include type="message" />
+				<div class="component"><jdoc:include type="component" /></div>
+				<div class="bottom"><jdoc:include type="modules" name="bottom" /></div>
+			</div>
+			<div class="footer"><jdoc:include type="modules" name="footer" /></div>
 		</div>
 	</body>
 </html>
