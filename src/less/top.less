@@ -18,6 +18,7 @@
 		flex-basis: content;
 		float: right;
 		margin: 25px 10px 0 0;
+		position: relative;
 		
 		label {
 			display: none;
@@ -28,8 +29,15 @@
 			border: 1px solid silver;
 			-webkit-appearance: none;
 			border-radius: 20px;
-			padding: 5px;
+			padding: 5px 5px 5px 20px;
 			box-shadow: 5px 5px 5px silver;
+		}
+		
+		i {
+			position: absolute;
+			right: 210px;
+			color: @primary-color;
+			top: 13px;
 		}
 	}
 	
