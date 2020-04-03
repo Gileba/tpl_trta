@@ -15,7 +15,7 @@ JHtml::_('script', 'system/html5fallback.js', array('version' => 'auto', 'relati
 
 if ($width)
 {
-	$moduleclass_sfx .= ' ' . 'mod_search' . $module->id;
+	$moduleclass_sfx .= ' mod_search' . $module->id;
 	$css = 'div.mod_search' . $module->id . ' input[type="search"]{ width:auto; }';
 	JFactory::getDocument()->addStyleDeclaration($css);
 	$width = ' size="' . $width . '"';
@@ -29,12 +29,14 @@ else
 	<form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="form-inline" role="search">
 		<?php
 			$output = '<label for="mod-search-searchword' . $module->id . '" class="element-invisible">' . $label . '</label> ';
-			$output .= '<input name="searchword" id="mod-search-searchword' . $module->id . '" maxlength="' . $maxlength . '"  class="inputbox search-query input-medium" type="search"' . $width;
+			$output .= '<input name="searchword" id="mod-search-searchword' . $module->id . '" maxlength="' . $maxlength . '"  
+				class="inputbox search-query input-medium" type="search"' . $width;
 			$output .= ' placeholder="' . $text . '" />';
 
 			if ($button) :
 				if ($imagebutton) :
-					$btn_output = ' <input type="image" alt="' . $button_text . '" class="button" src="' . $img . '" onclick="this.form.searchword.focus();"/>';
+					$btn_output = ' <input type="image" alt="' . $button_text . '" class="button" src="' . $img . '" 
+						onclick="this.form.searchword.focus();"/>';
 				else :
 					$btn_output = ' <button class="button btn btn-primary" onclick="this.form.searchword.focus();">' . $button_text . '</button>';
 				endif;
