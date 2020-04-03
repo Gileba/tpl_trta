@@ -33,33 +33,33 @@ else
 				class="inputbox search-query input-medium" type="search"' . $width;
 			$output .= ' placeholder="' . $text . '" />';
 
-			if ($button) :
-				if ($imagebutton) :
-					$btn_output = ' <input type="image" alt="' . $button_text . '" class="button" src="' . $img . '" 
+		if ($button) :
+			if ($imagebutton) :
+				$btn_output = ' <input type="image" alt="' . $button_text . '" class="button" src="' . $img . '" 
 						onclick="this.form.searchword.focus();"/>';
-				else :
+			else :
 					$btn_output = ' <button class="button btn btn-primary" onclick="this.form.searchword.focus();">' . $button_text . '</button>';
-				endif;
-
-				switch ($button_pos) :
-					case 'top' :
-						$output = $btn_output . '<br />' . $output;
-						break;
-
-					case 'bottom' :
-						$output .= '<br />' . $btn_output;
-						break;
-
-					case 'right' :
-						$output .= $btn_output;
-						break;
-
-					case 'left' :
-					default :
-						$output = $btn_output . $output;
-						break;
-				endswitch;
 			endif;
+
+			switch ($button_pos) :
+				case 'top' :
+					$output = $btn_output . '<br />' . $output;
+					break;
+
+				case 'bottom' :
+					$output .= '<br />' . $btn_output;
+					break;
+
+				case 'right' :
+					$output .= $btn_output;
+					break;
+
+				case 'left' :
+				default :
+					$output = $btn_output . $output;
+					break;
+			endswitch;
+		endif;
 
 			echo $output;
 		?>
