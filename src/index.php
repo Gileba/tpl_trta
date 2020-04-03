@@ -12,6 +12,10 @@
 	$params		= $app->getTemplate(true)->params;
 	$config 	= JFactory::getConfig();
 	$pageclass 	= $menu->getActive()->getParams(true)->get('pageclass_sfx');
+	
+	// Logo file or site title param
+	$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +29,10 @@
 	<body class="<?php echo $pageclass ? htmlspecialchars($pageclass) : 'default'; ?>">
 		<div class="offcanvas"><jdoc:include type="modules" name="offcanvas" /></div>
 		<div class="container">
-			<div class="top"><jdoc:include type="modules" name="top" /></div>
+			<div class="top">
+				<div class="logo"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
+				<jdoc:include type="modules" name="top" />
+			</div>
 			<div class="content">
 				<jdoc:include type="message" />
 				<div class="component"><jdoc:include type="component" /></div>
