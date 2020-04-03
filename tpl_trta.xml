@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+	<update>
+		<name>TRTA Template (Package)</name>
+		<description>TRTA Template (Package)</description>
+		<element>trta_gle</element>
+		<type>package</type>
+		<version>0.1.0</version>
+		<infourl title="TRTA Template Package">https://github.com/Gileba/tpl_trta/releases/tag/0.1.0</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/Gileba/tpl_trta/releases/download/0.1.0/pkg_trta.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<targetplatform name="joomla" version="3.[9]"/>
+		<client>0</client>
+	</update>
+</updates>
