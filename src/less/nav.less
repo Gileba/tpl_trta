@@ -1,7 +1,7 @@
 .nav {
 	display: flex;
 	flex-grow: 2;
-	justify-content: flex-end;		
+	justify-content: flex-end;
 	list-style-type: none;
 	margin: 0 40px;
 	padding-top: 0;
@@ -11,16 +11,11 @@
 		padding-top: 37px;
 		margin-left: 50px;
 
-
-		&:not(:hover) .nav-child {
-			display: none;
-		}
-
 		.nav-child {
 			position: absolute;
 			padding-inline-start: 0;
 			list-style-type: none;
-			padding: 30px 0 0 0;
+			padding: 30px 0 0;
 			margin-left: -100px;
 			z-index: 2;
 			background-color: white;
@@ -44,8 +39,12 @@
 				}
 			}
 		}
+
+		&:not(:hover) .nav-child {
+			display: none;
+		}
 	}
-	
+
 	.active {
 		margin-top: 0;
 		border-top: @primary-color solid 5px;
