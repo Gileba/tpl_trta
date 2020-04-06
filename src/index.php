@@ -40,7 +40,9 @@
 				<div class="component"><jdoc:include type="component" /></div>
 				<div class="bottom"><jdoc:include type="modules" name="bottom" /></div>
 			</div>
-			<div class="footer"><jdoc:include type="modules" name="footer" /></div>
+			<div class="footer">
+				<div class="logo"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
+				<jdoc:include type="modules" name="footer" /></div>
 		</div>
 	</body>
 </html>
