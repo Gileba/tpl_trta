@@ -1,5 +1,6 @@
 .footer {
 	display: flex;
+	margin: 40px 0;
 
 	div {
 		flex-basis: auto;
@@ -31,12 +32,44 @@
 
 .bottom {
 	background-image: url(../images/bottom.svg);
-	background-size: cover;
 	min-height: 25vw;
-	margin-top: -11vw;
+	margin: -11vw 0 20px;
+	width: 100vw;
+	@media screen and (min-width: 940px) {
+		background-size: cover;
+	}
 
 	.bottom-content {
-		padding-top: 16vw;
+		padding: 18vw 20px 0;
 		color: white;
+		.gil-flex-container();
+
+		.modtitle {
+			color: @secondary-color;
+			text-transform: uppercase;
+			.gil-width-1-10();
+		}
+
+		.newsflash {
+			.gil-flex-container();
+			width: 90%;
+
+			.newsitem {
+				border-left: solid 2px silver;
+				padding: 0 0 20px 10px;
+				margin-bottom: 50px;
+				min-width: 250px;
+				width: ~"calc(33% - 10px)";
+
+				dd {
+					margin-inline-start: 0;
+					color: @secondary-color;
+				}
+
+				h4 {
+					margin-top: 0;
+				}
+			}
+		}
 	}
 }
