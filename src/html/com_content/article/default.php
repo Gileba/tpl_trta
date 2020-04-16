@@ -43,7 +43,7 @@ JHtml::_('behavior.caption');
 		$useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
 		|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author')
 		|| $assocParam);
-	?>
+		?>
 
 	<?php if (!$useDefList && $this->print) : ?>
 		<div id="pop-print" class="btn hidden-print">
@@ -52,24 +52,24 @@ JHtml::_('behavior.caption');
 		<div class="clearfix"> </div>
 	<?php endif; ?>
 	<?php
-		if (!$this->print) :
-			if ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon')) :
-				echo JLayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item, 'print' => false));
-			endif;
-		else :
-			if ($useDefList) :
-	?>
+	if (!$this->print) :
+		if ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon')) :
+			echo JLayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item, 'print' => false));
+		endif;
+	else :
+		if ($useDefList) :
+			?>
 		<div id="pop-print" class="btn hidden-print">
 			<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
 		</div>
-	<?php endif; ?>
+		<?php endif; ?>
 	<?php endif; ?>
 
 	<?php
-		if ($useDefList && ($info == 0 || $info == 2)) :
-			// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
-			echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));
-		endif;
+	if ($useDefList && ($info == 0 || $info == 2)) :
+		// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
+		echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));
+	endif;
 	?>
 
 	<?php if ($params->get('show_title')) : ?>
@@ -84,10 +84,10 @@ JHtml::_('behavior.caption');
 			<span class="label label-warning"><?php echo JText::_('JNOTPUBLISHEDYET'); ?></span>
 		<?php endif; ?>
 		<?php
-			if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
-				&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
-			) :
-		?>
+		if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
+			&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
+		) :
+			?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>
 	</div>
@@ -107,23 +107,23 @@ JHtml::_('behavior.caption');
 
 	<?php if (isset($urls)
 	&& ((!empty($urls->urls_position) && ($urls->urls_position == '0'))
-		|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
+	|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
 	|| (empty($urls->urls_position) && (!$params->get('urls_position')))
-	) : ?>
+) : ?>
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
 	<?php if ($params->get('access-view')) : ?>
-	<?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
-	<?php
+		<?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
+		<?php
 		if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->paginationposition && !$this->item->paginationrelative) :
 			echo $this->item->pagination;
 		endif;
-	?>
-	<?php 
+		?>
+		<?php
 		if (isset($this->item->toc)) :
 			echo $this->item->toc;
 		endif;
-	?>
+		?>
 	<div itemprop="articleBody">
 		<div class="introtext">
 			<?php echo $this->item->introtext; ?>
@@ -133,7 +133,7 @@ JHtml::_('behavior.caption');
 		</div>
 	</div>
 
-	<?php
+		<?php
 		if ($info == 1 || $info == 2) :
 			if ($useDefList) :
 				// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
@@ -146,60 +146,60 @@ JHtml::_('behavior.caption');
 				echo $this->item->tagLayout->render($this->item->tags->itemTags);
 			endif;
 		endif;
-	?>
+		?>
 
-	<?php
+		<?php
 		if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && !$this->item->paginationrelative) :
 			echo $this->item->pagination;
 		endif;
-	?>
-	<?php
+		?>
+		<?php
 		if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '1')) || ($params->get('urls_position') == '1'))) :
 			echo $this->loadTemplate('links');
 		endif;
-	?>
-	<?php
+		?>
+		<?php
 		// Optional teaser intro text for guests
-		elseif ($params->get('show_noauth') == true && $user->get('guest')) :
+	elseif ($params->get('show_noauth') == true && $user->get('guest')) :
 			echo JLayoutHelper::render('joomla.content.intro_image', $this->item);
 			echo JHtml::_('content.prepare', $this->item->introtext);
-			
+
 			// Optional link to let them register to see the whole article.
-			if ($params->get('show_readmore') && $this->item->fulltext != null) :
-				$menu = JFactory::getApplication()->getMenu();
-				$active = $menu->getActive();
-				$itemId = $active->id;
-				$link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false));
-				$link->setVar('return',
-					base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
-				);
-	?>
+		if ($params->get('show_readmore') && $this->item->fulltext != null) :
+			$menu = JFactory::getApplication()->getMenu();
+			$active = $menu->getActive();
+			$itemId = $active->id;
+			$link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false));
+			$link->setVar('return',
+			base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
+			);
+			?>
 	<p class="readmore">
 		<a href="<?php echo $link; ?>" class="register">
-		<?php
-			$attribs = json_decode($this->item->attribs);
-			if ($attribs->alternative_readmore == null) :
-				echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
-			elseif ($readmore = $attribs->alternative_readmore) :
-				echo $readmore;
-				if ($params->get('show_readmore_title', 0) != 0) :
-					echo JHtml::_('string.truncate', $this->item->title, $params->get('readmore_limit'));
+				<?php
+				$attribs = json_decode($this->item->attribs);
+				if ($attribs->alternative_readmore == null) :
+					echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
+				elseif ($readmore = $attribs->alternative_readmore) :
+					echo $readmore;
+					if ($params->get('show_readmore_title', 0) != 0) :
+						echo JHtml::_('string.truncate', $this->item->title, $params->get('readmore_limit'));
+					endif;
+				elseif ($params->get('show_readmore_title', 0) == 0) :
+						echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
+				else :
+						echo JText::_('COM_CONTENT_READ_MORE');
+						echo JHtml::_('string.truncate', $this->item->title, $params->get('readmore_limit'));
 				endif;
-			elseif ($params->get('show_readmore_title', 0) == 0) :
-				echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
-			else :
-				echo JText::_('COM_CONTENT_READ_MORE');
-				echo JHtml::_('string.truncate', $this->item->title, $params->get('readmore_limit'));
-			endif;
-		?>
+				?>
 		</a>
 	</p>
-	<?php endif; ?>
+		<?php endif; ?>
 	<?php endif; ?>
 	<?php
-		if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && $this->item->paginationrelative) :
-			echo $this->item->pagination;
-	?>
+	if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && $this->item->paginationrelative) :
+		echo $this->item->pagination;
+		?>
 	<?php endif; ?>
 	<?php // Content is generated by content plugin event "onContentAfterDisplay" ?>
 	<?php echo $this->item->event->afterDisplayContent; ?>
