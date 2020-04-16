@@ -64,7 +64,8 @@ JHtml::_('behavior.caption');
 	<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
 		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
 		<?php echo JLayoutHelper::render('joomla.content.info_block.block',
-			array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
+			array('item' => $this->item, 'params' => $params, 'position' => 'above')
+			); ?>
 	<?php endif; ?>
 
 	<?php if ($params->get('show_title')) : ?>
@@ -109,7 +110,7 @@ JHtml::_('behavior.caption');
 		echo $this->item->pagination;
 	endif;
 	?>
-	<?php if (isset ($this->item->toc)) :
+	<?php if (isset($this->item->toc)) :
 		echo $this->item->toc;
 	endif; ?>
 	<div itemprop="articleBody">
@@ -125,7 +126,8 @@ JHtml::_('behavior.caption');
 		<?php if ($useDefList) : ?>
 				<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
 			<?php echo JLayoutHelper::render('joomla.content.info_block.block',
-				array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
+				array('item' => $this->item, 'params' => $params, 'position' => 'below')
+				); ?>
 		<?php endif; ?>
 		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 			<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
@@ -152,7 +154,8 @@ JHtml::_('behavior.caption');
 	<?php $itemId = $active->id; ?>
 	<?php $link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false)); ?>
 	<?php $link->setVar('return',
-		base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))); ?>
+		base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
+		); ?>
 	<p class="readmore">
 		<a href="<?php echo $link; ?>" class="register">
 		<?php $attribs = json_decode($this->item->attribs); ?>
