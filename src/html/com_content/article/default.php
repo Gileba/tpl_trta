@@ -100,9 +100,9 @@ JHtml::_('behavior.caption');
 	<?php echo $this->item->event->beforeDisplayContent; ?>
 
 	<?php if (isset($urls)
-		&& ((!empty($urls->urls_position) && ($urls->urls_position == '0'))
-			|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
-		|| (empty($urls->urls_position) && (!$params->get('urls_position')))
+	&& ((!empty($urls->urls_position) && ($urls->urls_position == '0'))
+		|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
+	|| (empty($urls->urls_position) && (!$params->get('urls_position')))
 	) : ?>
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
