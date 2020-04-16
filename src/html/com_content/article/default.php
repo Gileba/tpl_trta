@@ -171,7 +171,7 @@ JHtml::_('behavior.caption');
 			$itemId = $active->id;
 			$link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false));
 			$link->setVar('return',
-			base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
+				base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
 			);
 			?>
 	<p class="readmore">
