@@ -65,7 +65,7 @@ JHtml::_('behavior.caption');
 		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
 		<?php echo JLayoutHelper::render('joomla.content.info_block.block',
 			array('item' => $this->item, 'params' => $params, 'position' => 'above')
-			); ?>
+		); ?>
 	<?php endif; ?>
 
 	<?php if ($params->get('show_title')) : ?>
@@ -80,7 +80,7 @@ JHtml::_('behavior.caption');
 			<span class="label label-warning"><?php echo JText::_('JNOTPUBLISHEDYET'); ?></span>
 		<?php endif; ?>
 		<?php if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
-		&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
+			&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
 		) : ?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>
@@ -100,8 +100,9 @@ JHtml::_('behavior.caption');
 	<?php echo $this->item->event->beforeDisplayContent; ?>
 
 	<?php if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '0'))
-	|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
-	|| (empty($urls->urls_position) && (!$params->get('urls_position')))) : ?>
+		|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
+		|| (empty($urls->urls_position) && (!$params->get('urls_position')))
+	) : ?>
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
 	<?php if ($params->get('access-view')) : ?>
@@ -128,7 +129,7 @@ JHtml::_('behavior.caption');
 				<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
 			<?php echo JLayoutHelper::render('joomla.content.info_block.block',
 				array('item' => $this->item, 'params' => $params, 'position' => 'below')
-				); ?>
+			); ?>
 		<?php endif; ?>
 		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 			<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
@@ -156,7 +157,7 @@ JHtml::_('behavior.caption');
 	<?php $link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false)); ?>
 	<?php $link->setVar('return',
 		base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
-		); ?>
+	); ?>
 	<p class="readmore">
 		<a href="<?php echo $link; ?>" class="register">
 		<?php $attribs = json_decode($this->item->attribs); ?>
