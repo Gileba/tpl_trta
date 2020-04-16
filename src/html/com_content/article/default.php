@@ -153,19 +153,22 @@ JHtml::_('behavior.caption');
 			echo $this->loadTemplate('links');
 		endif;
 	?>
-	<?php // Optional teaser intro text for guests ?>
-	<?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
-	<?php echo JLayoutHelper::render('joomla.content.intro_image', $this->item); ?>
-	<?php echo JHtml::_('content.prepare', $this->item->introtext); ?>
-	<?php // Optional link to let them register to see the whole article. ?>
-	<?php if ($params->get('show_readmore') && $this->item->fulltext != null) : ?>
-	<?php $menu = JFactory::getApplication()->getMenu(); ?>
-	<?php $active = $menu->getActive(); ?>
-	<?php $itemId = $active->id; ?>
-	<?php $link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false)); ?>
-	<?php $link->setVar('return',
-		base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
-	); ?>
+	<?php
+		// Optional teaser intro text for guests
+		elseif ($params->get('show_noauth') == true && $user->get('guest')) :
+			echo JLayoutHelper::render('joomla.content.intro_image', $this->item);
+			echo JHtml::_('content.prepare', $this->item->introtext);
+			
+			// Optional link to let them register to see the whole article.
+			if ($params->get('show_readmore') && $this->item->fulltext != null) :
+				$menu = JFactory::getApplication()->getMenu();
+				$active = $menu->getActive();
+				$itemId = $active->id;
+				$link = new JUri(JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false));
+				$link->setVar('return',
+					base64_encode(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language))
+				);
+	?>
 	<p class="readmore">
 		<a href="<?php echo $link; ?>" class="register">
 		<?php $attribs = json_decode($this->item->attribs); ?>
