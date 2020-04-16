@@ -39,9 +39,11 @@ JHtml::_('behavior.caption');
 	?>
 
 	<?php // Todo Not that elegant would be nice to group the params ?>
-	<?php $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
-	|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author')
-|| $assocParam); ?>
+	<?php
+		$useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
+		|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author')
+		|| $assocParam);
+	?>
 
 	<?php if (!$useDefList && $this->print) : ?>
 		<div id="pop-print" class="btn hidden-print">
@@ -63,9 +65,9 @@ JHtml::_('behavior.caption');
 
 	<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
 		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
-		<?php echo JLayoutHelper::render('joomla.content.info_block.block',
-			array('item' => $this->item, 'params' => $params, 'position' => 'above')
-		); ?>
+		<?php
+			echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));
+		?>
 	<?php endif; ?>
 
 	<?php if ($params->get('show_title')) : ?>
@@ -108,13 +110,15 @@ JHtml::_('behavior.caption');
 	<?php if ($params->get('access-view')) : ?>
 	<?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
 	<?php
-	if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->paginationposition && !$this->item->paginationrelative) :
-		echo $this->item->pagination;
-	endif;
+		if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->paginationposition && !$this->item->paginationrelative) :
+			echo $this->item->pagination;
+		endif;
 	?>
-	<?php if (isset($this->item->toc)) :
-		echo $this->item->toc;
-	endif; ?>
+	<?php 
+		if (isset($this->item->toc)) :
+			echo $this->item->toc;
+		endif;
+	?>
 	<div itemprop="articleBody">
 		<div class="introtext">
 			<?php echo $this->item->introtext; ?>
@@ -124,27 +128,31 @@ JHtml::_('behavior.caption');
 		</div>
 	</div>
 
-	<?php if ($info == 1 || $info == 2) : ?>
-		<?php if ($useDefList) : ?>
-				<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
-			<?php echo JLayoutHelper::render('joomla.content.info_block.block',
-				array('item' => $this->item, 'params' => $params, 'position' => 'below')
-			); ?>
-		<?php endif; ?>
-		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-			<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
-			<?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
-		<?php endif; ?>
-	<?php endif; ?>
+	<?php
+		if ($info == 1 || $info == 2) :
+			if ($useDefList) :
+				// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
+				echo JLayoutHelper::render('joomla.content.info_block.block',
+					array('item' => $this->item, 'params' => $params, 'position' => 'below')
+				);
+			endif;
+			if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) :
+				$this->item->tagLayout = new JLayoutFile('joomla.content.tags');
+				echo $this->item->tagLayout->render($this->item->tags->itemTags);
+			endif;
+		endif;
+	?>
 
 	<?php
-	if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && !$this->item->paginationrelative) :
-		echo $this->item->pagination;
+		if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && !$this->item->paginationrelative) :
+			echo $this->item->pagination;
+		endif;
 	?>
-	<?php endif; ?>
-	<?php if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '1')) || ($params->get('urls_position') == '1'))) : ?>
-	<?php echo $this->loadTemplate('links'); ?>
-	<?php endif; ?>
+	<?php
+		if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '1')) || ($params->get('urls_position') == '1'))) :
+			echo $this->loadTemplate('links');
+		endif;
+	?>
 	<?php // Optional teaser intro text for guests ?>
 	<?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
 	<?php echo JLayoutHelper::render('joomla.content.intro_image', $this->item); ?>
