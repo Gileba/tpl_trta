@@ -80,7 +80,7 @@ JHtml::_('behavior.caption');
 			<span class="label label-warning"><?php echo JText::_('JNOTPUBLISHEDYET'); ?></span>
 		<?php endif; ?>
 		<?php if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
-			&& $this->item->publish_down != JFactory::getDbo()->getNullDate()) : ?>
+		&& $this->item->publish_down != JFactory::getDbo()->getNullDate()) : ?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>
 	</div>
@@ -99,8 +99,8 @@ JHtml::_('behavior.caption');
 	<?php echo $this->item->event->beforeDisplayContent; ?>
 
 	<?php if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '0'))
-		|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
-		|| (empty($urls->urls_position) && (!$params->get('urls_position')))) : ?>
+	|| ($params->get('urls_position') == '0' && empty($urls->urls_position)))
+	|| (empty($urls->urls_position) && (!$params->get('urls_position')))) : ?>
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
 	<?php if ($params->get('access-view')) : ?>
