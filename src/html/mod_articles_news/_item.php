@@ -49,4 +49,4 @@ defined('_JEXEC') or die;
 
 <?php if (isset($item->link) && $item->readmore != 0 && $params->get('readmore')) : ?>
 	<?php echo '<a class="readmore" href="' . $item->link . '">' . $item->linkText . '</a>'; ?>
-<?php endif; ?>
+<?php endif;
