@@ -51,24 +51,26 @@ JHtml::_('behavior.caption');
 		</div>
 		<div class="clearfix"> </div>
 	<?php endif; ?>
-	<?php if (!$this->print) : ?>
-		<?php if ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-			<?php echo JLayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item, 'print' => false)); ?>
-		<?php endif; ?>
-	<?php else : ?>
-		<?php if ($useDefList) : ?>
-			<div id="pop-print" class="btn hidden-print">
-				<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
-			</div>
-		<?php endif; ?>
+	<?php
+		if (!$this->print) :
+			if ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon')) :
+				echo JLayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item, 'print' => false));
+			endif;
+		else :
+			if ($useDefList) :
+	?>
+		<div id="pop-print" class="btn hidden-print">
+			<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
+		</div>
+	<?php endif; ?>
 	<?php endif; ?>
 
-	<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
-		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
-		<?php
+	<?php
+		if ($useDefList && ($info == 0 || $info == 2)) :
+			// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
 			echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));
-		?>
-	<?php endif; ?>
+		endif;
+	?>
 
 	<?php if ($params->get('show_title')) : ?>
 	<div class="page-header">
@@ -81,8 +83,11 @@ JHtml::_('behavior.caption');
 		<?php if (strtotime($this->item->publish_up) > strtotime(JFactory::getDate())) : ?>
 			<span class="label label-warning"><?php echo JText::_('JNOTPUBLISHEDYET'); ?></span>
 		<?php endif; ?>
-		<?php if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
-		&& $this->item->publish_down != JFactory::getDbo()->getNullDate()) : ?>
+		<?php
+			if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
+				&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
+			) :
+		?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>
 	</div>
