@@ -16,11 +16,9 @@ $id     = $input->getInt('id');
 
 foreach ($list as $item) : ?>
 	<li
-		<?php
-			if ($id == $item->id && in_array($view, array('category', 'categories')) && ($option == 'com_content')) : 
-				echo ' class="active"';
-			endif;
-		?>
+		<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && ($option == 'com_content')) :
+			echo ' class="active"';
+		endif; ?>
 	>
 		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id)); ?>">
 		<?php if ($item->getParams()->get('image')) : ?>
@@ -32,8 +30,10 @@ foreach ($list as $item) : ?>
 		<?php if ($params->get('show_description', 0)) : ?>
 			<?php echo JHtml::_('content.prepare', $item->description, $item->getParams(), 'mod_articles_categories.content'); ?>
 		<?php endif; ?>
-		<?php if ($params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
-			|| ($params->get('maxlevel') >= ($item->level - $startLevel))) && count($item->getChildren())) : ?>
+		<?php if (
+			$params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0) || ($params->get('maxlevel') >= ($item->level - $startLevel)))
+			&& count($item->getChildren())
+		) : ?>
 			<?php echo '<ul>'; ?>
 			<?php $temp = $list; ?>
 			<?php $list = $item->getChildren(); ?>
