@@ -15,7 +15,7 @@ $view   = $input->getCmd('view');
 $id     = $input->getInt('id');
 
 foreach ($list as $item) : ?>
-	<li<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') echo ' class="active"'; ?>> <?php $levelup = $item->level - $startLevel - 1; ?>
+	<li<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') echo ' class="active"'; ?>>
 		<h<?php echo $params->get('item_heading') + $levelup; ?>>
 		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id)); ?>">
 		<?php if ($item->getParams()->get('image')) : ?>
@@ -39,4 +39,4 @@ foreach ($list as $item) : ?>
 			<?php echo '</ul>'; ?>
 		<?php endif; ?>
 	</li>
-<?php endforeach; ?>
+<?php endforeach;
