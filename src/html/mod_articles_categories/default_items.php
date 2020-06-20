@@ -15,15 +15,13 @@ $view   = $input->getCmd('view');
 $id     = $input->getInt('id');
 
 foreach ($list as $item) : ?>
-	<li<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') : echo ' class="active"'; ?>>
-		<h<?php echo $params->get('item_heading') + $levelup; ?>>
+	<li<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') echo ' class="active"'; ?>>
 		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id)); ?>">
 		<?php if ($item->getParams()->get('image')) : ?>
 			<img src="<?php echo $item->getParams()->get('image'); ?>"
 				alt="<?php echo htmlspecialchars($item->getParams()->get('image_alt'), ENT_COMPAT, 'UTF-8'); ?>"/>
 		<?php endif; ?>
 		</a>
-		</h<?php echo $params->get('item_heading') + $levelup; ?>>
 
 		<?php if ($params->get('show_description', 0)) : ?>
 			<?php echo JHtml::_('content.prepare', $item->description, $item->getParams(), 'mod_articles_categories.content'); ?>
