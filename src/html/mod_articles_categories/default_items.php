@@ -15,7 +15,9 @@ $view   = $input->getCmd('view');
 $id     = $input->getInt('id');
 
 foreach ($list as $item) : ?>
-	<li<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') echo ' class="active"'; ?>>
+	<li
+		<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') echo ' class="active"'; ?>
+	>
 		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id)); ?>">
 		<?php if ($item->getParams()->get('image')) : ?>
 			<img src="<?php echo $item->getParams()->get('image'); ?>"
