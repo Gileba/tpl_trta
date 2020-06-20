@@ -30,16 +30,15 @@ foreach ($list as $item) : ?>
 		<?php if ($params->get('show_description', 0)) : ?>
 			<?php echo JHtml::_('content.prepare', $item->description, $item->getParams(), 'mod_articles_categories.content'); ?>
 		<?php endif; ?>
-		<?php
-			if ($params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
-				|| ($params->get('maxlevel') >= ($item->level - $startLevel))) && count($item->getChildren())) :
+		<?php if ($params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
+			|| ($params->get('maxlevel') >= ($item->level - $startLevel))) && count($item->getChildren())) :
+			echo '<ul>';
+			$temp = $list;
+			$list = $item->getChildren();
+			require JModuleHelper::getLayoutPath('mod_articles_categories', $params->get('layout', 'default') . '_items');
+			$list = $temp;
+			echo '</ul>';
+		endif;
 		?>
-			<?php echo '<ul>'; ?>
-			<?php $temp = $list; ?>
-			<?php $list = $item->getChildren(); ?>
-			<?php require JModuleHelper::getLayoutPath('mod_articles_categories', $params->get('layout', 'default') . '_items'); ?>
-			<?php $list = $temp; ?>
-			<?php echo '</ul>'; ?>
-		<?php endif; ?>
 	</li>
 <?php endforeach;
