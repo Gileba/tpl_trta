@@ -31,7 +31,7 @@ foreach ($list as $item) : ?>
 			<?php echo JHtml::_('content.prepare', $item->description, $item->getParams(), 'mod_articles_categories.content'); ?>
 		<?php endif; ?>
 		<?php if ($params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
-|| ($params->get('maxlevel') >= ($item->level - $startLevel))) && count($item->getChildren())) : ?>
+		|| ($params->get('maxlevel') >= ($item->level - $startLevel))) && count($item->getChildren())) : ?>
 			<?php echo '<ul>'; ?>
 			<?php $temp = $list; ?>
 			<?php $list = $item->getChildren(); ?>
