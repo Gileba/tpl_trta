@@ -71,5 +71,24 @@
 				}
 			}
 		}
+		
+		.categories-module {
+			.gil-flex-container();
+			width: 87%;
+			margin-top: 0;
+
+			li {
+				border-left: solid 2px silver;
+				padding: 0 0 20px 10px;
+				margin-bottom: 50px;
+				min-width: 200px;
+				width: ~"calc(24% - 10px)";
+				list-style-type: none;
+
+				&.active {
+					display: none;
+				}
+			}
+		}
 	}
 }
