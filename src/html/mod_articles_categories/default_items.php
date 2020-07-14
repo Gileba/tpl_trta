@@ -15,28 +15,31 @@ $view   = $input->getCmd('view');
 $id     = $input->getInt('id');
 
 foreach ($list as $item) : ?>
-	<li<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && $option == 'com_content') echo ' class="active"'; ?>> <?php $levelup = $item->level - $startLevel - 1; ?>
-		<h<?php echo $params->get('item_heading') + $levelup; ?>>
+	<li
+		<?php if ($id == $item->id && in_array($view, array('category', 'categories')) && ($option == 'com_content')) :
+			echo ' class="active"';
+		endif; ?>
+	>
 		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id)); ?>">
-		<?php echo $item->title; ?>
-			<?php if ($params->get('numitems')) : ?>
-				(<?php echo $item->numitems; ?>)
-			<?php endif; ?>
+		<?php if ($item->getParams()->get('image')) : ?>
+			<img src="<?php echo $item->getParams()->get('image'); ?>"
+				alt="<?php echo htmlspecialchars($item->getParams()->get('image_alt'), ENT_COMPAT, 'UTF-8'); ?>"/>
+		<?php endif; ?>
 		</a>
-		</h<?php echo $params->get('item_heading') + $levelup; ?>>
 
 		<?php if ($params->get('show_description', 0)) : ?>
 			<?php echo JHtml::_('content.prepare', $item->description, $item->getParams(), 'mod_articles_categories.content'); ?>
 		<?php endif; ?>
-		<?php if ($params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
-			|| ($params->get('maxlevel') >= ($item->level - $startLevel)))
-			&& count($item->getChildren())) : ?>
-			<?php echo '<ul>'; ?>
-			<?php $temp = $list; ?>
-			<?php $list = $item->getChildren(); ?>
-			<?php require JModuleHelper::getLayoutPath('mod_articles_categories', $params->get('layout', 'default') . '_items'); ?>
-			<?php $list = $temp; ?>
-			<?php echo '</ul>'; ?>
-		<?php endif; ?>
+		<?php
+		if ($params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0) || ($params->get('maxlevel') >= ($item->level - $startLevel)))
+			&& count($item->getChildren())) :
+			echo '<ul>';
+			$temp = $list;
+			$list = $item->getChildren();
+			require JModuleHelper::getLayoutPath('mod_articles_categories', $params->get('layout', 'default') . '_items');
+			$list = $temp;
+			echo '</ul>';
+		endif;
+		?>
 	</li>
-<?php endforeach; ?>
+<?php endforeach;
