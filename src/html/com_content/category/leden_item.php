@@ -33,9 +33,9 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 		<?php if ($params->get('show_title')) : ?>
 			<div itemprop="name">
 				<?php if ($params->get('link_titles') && ($params->get('access-view') || $params->get('show_noauth', '0') == '1')) : ?>
-					<a href="<?php echo JRoute::_(
-						ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)
-					); ?>" itemprop="url">
+					<a href="
+						<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>"
+						itemprop="url">
 						<?php echo $this->escape($this->item->title); ?>
 					</a>
 				<?php else : ?>
@@ -85,8 +85,8 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 	<?php if ($useDefList) : ?>
 		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
 		<?php echo JLayoutHelper::render('joomla.content.info_block.block',
-			array('item' => $this->item, 'params' => $params, 'position' => 'below')
-			); ?>
+		array('item' => $this->item, 'params' => $params, 'position' => 'below')
+		); ?>
 	<?php endif; ?>
 	<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 		<?php echo JLayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
