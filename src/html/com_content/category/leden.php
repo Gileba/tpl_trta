@@ -50,10 +50,12 @@ $afterDisplayContent = trim(implode("\n", $results));
 		<?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
 	<?php endif; ?>
 
-	<?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
+	<?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1)
+		|| $this->params->def('show_description_image', 1)) : ?>
 		<div class="category-desc clearfix">
 			<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
-				<img src="<?php echo $this->category->getParams()->get('image'); ?>" alt="<?php echo htmlspecialchars($this->category->getParams()->get('image_alt'), ENT_COMPAT, 'UTF-8'); ?>"/>
+				<img src="<?php echo $this->category->getParams()->get('image'); ?>"
+					alt="<?php echo htmlspecialchars($this->category->getParams()->get('image_alt'), ENT_COMPAT, 'UTF-8'); ?>"/>
 			<?php endif; ?>
 			<?php echo $beforeDisplayContent; ?>
 			<?php if ($this->params->get('show_description') && $this->category->description) : ?>
@@ -96,7 +98,8 @@ $afterDisplayContent = trim(implode("\n", $results));
 			<?php endif; ?>
 			<?php echo $this->loadTemplate('children'); ?> </div>
 	<?php endif; ?>
-	<?php if (($this->params->def('show_pagination', 1) == 1 || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
+	<?php if (($this->params->def('show_pagination', 1) == 1 || ($this->params->get('show_pagination') == 2))
+		&& ($this->pagination->get('pages.total') > 1)) : ?>
 		<div class="pagination">
 			<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 				<p class="counter pull-right"> <?php echo $this->pagination->getPagesCounter(); ?> </p>
