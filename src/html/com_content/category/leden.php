@@ -51,7 +51,7 @@ $afterDisplayContent = trim(implode("\n", $results));
 	<?php endif; ?>
 
 	<?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1)
-		|| $this->params->def('show_description_image', 1)
+	|| $this->params->def('show_description_image', 1)
 ) : ?>
 		<div class="category-desc clearfix">
 			<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
@@ -100,7 +100,7 @@ $afterDisplayContent = trim(implode("\n", $results));
 			<?php echo $this->loadTemplate('children'); ?> </div>
 	<?php endif; ?>
 	<?php if (($this->params->def('show_pagination', 1) == 1 || ($this->params->get('show_pagination') == 2))
-		&& ($this->pagination->get('pages.total') > 1)
+	&& ($this->pagination->get('pages.total') > 1)
 ) : ?>
 		<div class="pagination">
 			<?php if ($this->params->def('show_pagination_results', 1)) : ?>

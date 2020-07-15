@@ -54,7 +54,8 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 		<?php endif; ?>
 		
 		<?php if ($this->item->publish_down != JFactory::getDbo()->getNullDate()
-			&& (strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))) : ?>
+			&& (strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
+) : ?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>
 	</div>
@@ -82,12 +83,10 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 <?php echo $this->item->event->beforeDisplayContent; ?>
 
 <?php if ($info == 1 || $info == 2) : ?>
-	<?php if ($useDefList) : ?>
-		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
-		<?php echo JLayoutHelper::render('joomla.content.info_block.block',
-		array('item' => $this->item, 'params' => $params, 'position' => 'below')
-		); ?>
-	<?php endif; ?>
+	<?php if ($useDefList) :
+		// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
+		echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'below'));
+	endif; ?>
 	<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 		<?php echo JLayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
 	<?php endif; ?>
