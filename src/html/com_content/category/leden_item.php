@@ -53,8 +53,7 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 		<?php endif; ?>
 		
 		<?php if ($this->item->publish_down != JFactory::getDbo()->getNullDate()
-			&& (strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
-			) : ?>
+			&& (strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))) : ?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>
 	</div>
