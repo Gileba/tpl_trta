@@ -23,11 +23,12 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 <?php echo JLayoutHelper::render('joomla.content.intro_image', $this->item); ?>
 
 <?php if ($this->item->state == 0 || strtotime($this->item->publish_up) > strtotime(JFactory::getDate())
-	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate())) && $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
+	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
+	&& $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
 	<div class="system-unpublished">
 <?php endif; ?>
 
-<?php if ($this->item->state == 0 || $params->get('show_title') || ($params->get('show_author') && !empty($this->item->author ))) : ?>
+<?php if ($this->item->state == 0 || $params->get('show_title') || ($params->get('show_author') && !empty($this->item->author))) : ?>
 	<div class="page-header">
 		<?php if ($params->get('show_title')) : ?>
 			<div itemprop="name">
@@ -61,7 +62,8 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 
 <?php // Todo Not that elegant would be nice to group the params ?>
 <?php $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
-	|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') || $assocParam); ?>
+	|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author')
+	|| $assocParam); ?>
 
 <?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
 	<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
@@ -82,7 +84,8 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 <?php if ($info == 1 || $info == 2) : ?>
 	<?php if ($useDefList) : ?>
 		<?php // Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block ?>
-		<?php echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
+		<?php echo JLayoutHelper::render('joomla.content.info_block.block',
+			array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
 	<?php endif; ?>
 	<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 		<?php echo JLayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
@@ -105,7 +108,8 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 <?php endif; ?>
 
 <?php if ($this->item->state == 0 || strtotime($this->item->publish_up) > strtotime(JFactory::getDate())
-	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate())) && $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
+	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
+	&& $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
 </div>
 <?php endif; ?>
 
