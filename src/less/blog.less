@@ -1,0 +1,90 @@
+.blog {
+	.blog-leden {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		margin: 0 auto 50px;
+
+		.item {
+			display: grid;
+			grid-template-columns: 170px 170px;
+			grid-template-rows: 50px 70px 50px;
+			grid-template-areas:
+				"image title"
+				"image address"
+				"image readmore";
+			padding: 50px 20px 50px 0;
+			margin-top: -10px;
+
+			@media screen and (min-width: 1440px) {
+				&:nth-child(2n) {
+					.box-shadow(-4px 0 4px -6px #000000, 4px 0 4px -6px #000000);
+				}
+				&:nth-child(4n) {
+					.box-shadow(-4px 0 4px -6px #000000);
+				}
+				&:nth-child(5n), &:nth-child(7n) {
+					background-color: rgb(239,241,245);
+				}
+				&:nth-child(6n), &:nth-child(8n) {
+					background-color: rgb(248,249,250);
+				}
+			}
+		}
+
+		.item-image {
+			grid-area: image;
+			display: flex;
+			height: 100%;
+			width: 170px;
+			justify-content: center;
+			align-items: center;
+			border-right: 2px @primary-color solid;
+
+			img {
+				max-width: 150px;
+				max-height: 150px;
+			}
+		}
+
+		.page-header {
+			font-weight: bolder;
+			margin: 0 0 0 20px;
+			grid-area: title;
+		}
+
+		.fields-container {
+			margin: 0 0 50px 20px;
+			grid-area: address;
+			font-size: 0.9em;
+
+			dd {
+				display: inline;
+				margin-inline-start: 0;
+				font-weight: lighter;
+
+				&.postcode::before {
+					content: "\A";
+					white-space: pre;
+				}
+
+				&.contact {
+					display: none;
+				}
+			}
+		}
+
+		.readmore {
+			margin: 0 0 10px 20px;
+			grid-area: readmore;
+			align-self: end;
+			padding: 0;
+			background: none;
+
+			.btn {
+				.readmore();
+				.box-shadow(0 6px 9px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2));
+			}
+		}
+	}
+}
