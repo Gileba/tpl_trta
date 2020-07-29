@@ -23,6 +23,7 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 JHtml::_('behavior.caption');
 
 ?>
+<?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
 <div class="item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
 	<meta itemprop="inLanguage" 
 		content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />
@@ -112,7 +113,6 @@ JHtml::_('behavior.caption');
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
 	<?php if ($params->get('access-view')) : ?>
-		<?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
 		<?php
 		if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->paginationposition && !$this->item->paginationrelative) :
 			echo $this->item->pagination;
@@ -124,9 +124,11 @@ JHtml::_('behavior.caption');
 		endif;
 		?>
 	<div itemprop="articleBody">
+<?php if ($params->get('show_intro')) : ?>
 		<div class="introtext">
 			<?php echo $this->item->introtext; ?>
 		</div>
+<?php endif; ?>
 		<div class="articletext">
 			<?php echo str_replace($this->item->introtext, '', $this->item->text); ?>
 		</div>

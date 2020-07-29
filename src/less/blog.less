@@ -1,0 +1,161 @@
+.projecten {
+	.items-row {
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+
+	.item {
+		margin: 0 160px;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid @primary-color;
+		}
+
+		.page-header {
+			h2 {
+				text-align: center;
+			}
+		}
+
+		.readmore {
+			text-align: center;
+			background: none;
+			box-shadow: none;
+
+			.btn {
+				.readmore();
+			}
+		}
+
+		.icons {
+			display: none;
+		}
+
+		.article-info {
+			text-align: center;
+			width: 100%;
+
+			.published {
+				margin-inline-start: 0;
+				color: @secondary-color;
+				text-transform: uppercase;
+			}
+		}
+
+		.fields-container {
+			text-align: center;
+			width: 100%;
+
+			.field-entry {
+				margin-inline-start: 0;
+				color: @secondary-color;
+				text-transform: uppercase;
+			}
+		}
+
+		.main {
+			display: flex;
+
+			.item-image {	
+				flex-basis: 50%;
+
+				img {
+					max-width: 100%;
+				}
+			}
+
+			.introtext {
+				flex-basis: 50%;
+				margin-left: 50px;
+			}
+		}
+	}
+
+	.items-row:nth-child(2n) {
+		background-color: #F2F4F7;
+	}
+}
+	
+.blog {
+	.blog-leden {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		margin: 0 auto 50px;
+
+		.item {
+			display: grid;
+			grid-template-columns: 170px 170px;
+			grid-template-rows: 50px 70px 50px;
+			grid-template-areas:
+				"image title"
+				"image address"
+				"image readmore";
+			padding: 50px 20px 50px 0;
+			margin-top: -10px;
+
+			@media screen and (min-width: 1440px) {
+				&:nth-child(2n) {
+					.box-shadow(-4px 0 4px -6px #000000, 4px 0 4px -6px #000000);
+				}
+				&:nth-child(4n) {
+					.box-shadow(-4px 0 4px -6px #000000);
+				}
+				&:nth-child(8n+5), &:nth-child(8n+7) {
+					background-color: rgb(239,241,245);
+				}
+				&:nth-child(8n+6), &:nth-child(8n+8) {
+					background-color: rgb(248,249,250);
+				}
+			}
+		}
+
+		.item-image {
+			grid-area: image;
+			display: flex;
+			height: 100%;
+			width: 170px;
+			justify-content: center;
+			align-items: center;
+			border-right: 2px @primary-color solid;
+
+			img {
+				max-width: 150px;
+				max-height: 150px;
+			}
+		}
+
+		.page-header {
+			font-weight: bolder;
+			margin: 0 0 0 20px;
+			grid-area: title;
+		}
+
+		.fields-container {
+			margin: 0 0 50px 20px;
+			grid-area: address;
+			font-size: 0.9em;
+
+			dd {
+				display: inline;
+				margin-inline-start: 0;
+				font-weight: lighter;
+
+				&.postcode::before {
+					content: "\A";
+					white-space: pre;
+				}
+
+				&.contact {
+					display: none;
+				}
+			}
+		}
+
+		.readmore {
+			grid-area: readmore;
+			align-self: end;
+			margin: 0 0 10px 20px;
+		}
+	}
+}

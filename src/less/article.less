@@ -1,6 +1,10 @@
+.pull-none {
+	text-align: center;
+}
+
 .content {
 	.item-page {
-		margin: 0 80px;
+		margin: 0 160px;
 
 		.icons {
 			display: none;
@@ -21,6 +25,7 @@
 			text-align: center;
 			width: 100%;
 			font-weight: bolder;
+			font-size: 5em;
 		}
 
 		.fields-container {
@@ -36,6 +41,10 @@
 				.field-value {
 					font-size: 3em;
 				}
+
+				&.straat, &.nummer, &.postcode, &.gemeente {
+					display: none;
+				}
 			}
 		}
 
@@ -46,8 +55,34 @@
 		}
 
 		.articletext {
-			column-count: 2;
+			.columns {
+				column-count: 2;
+			}
 
+			.images {
+				text-align: center;
+
+				img {
+					margin: 0 10px;
+				}
+			}
+
+			.logo {
+				text-align: center;
+
+				img {
+					max-height: 150px;
+					max-width: 150px;
+				}
+			}
+
+			.link {
+				text-align: center;
+
+				a.readmore {
+					border: 1px solid @primary-color;
+				}
+			}
 		}
 
 		.pager {
@@ -64,4 +99,10 @@
 	border-radius: 20px;
 	color: @primary-color;
 	padding: 10px 30px;
+	.box-shadow(0 6px 9px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2));
+
+	&:hover {
+		color: white;
+		background: @primary-color;
+	}
 }

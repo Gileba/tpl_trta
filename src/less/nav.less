@@ -10,12 +10,13 @@
 	li {
 		padding-top: 37px;
 		margin-left: 50px;
+		width: 16%;
 
 		.nav-child {
 			position: absolute;
 			padding-inline-start: 0;
 			list-style-type: none;
-			padding: 30px 0 0;
+			padding: 30px 40px 20px;
 			margin-left: -100px;
 			z-index: 2;
 			background-color: white;
@@ -33,6 +34,7 @@
 				margin-left: 30px;
 				padding-top: 5px;
 				border: none;
+				width: 100%;
 
 				&:not(.active) {
 					font-weight: normal;
@@ -50,5 +52,11 @@
 		border-top: @primary-color solid 5px;
 		font-weight: bolder;
 		padding-top: 32px;
+	}
+}
+
+.breadcrumb {
+	li {
+		display: inline;
 	}
 }

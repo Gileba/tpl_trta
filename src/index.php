@@ -38,6 +38,7 @@
 			</div>
 			<div class="content">
 				<jdoc:include type="message" />
+				<div class="header"><jdoc:include type="modules" name="header" /></div>
 				<div class="component"><jdoc:include type="component" /></div>
 				<div class="bottom">
 					<div class="bottom-content"><jdoc:include type="modules" name="bottom" /></div>
