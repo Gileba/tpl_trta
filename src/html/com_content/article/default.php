@@ -124,11 +124,11 @@ JHtml::_('behavior.caption');
 		endif;
 		?>
 	<div itemprop="articleBody">
-<?php if ($params->get('show_intro')) : ?>
-		<div class="introtext">
-			<?php echo $this->item->introtext; ?>
-		</div>
-<?php endif; ?>
+		<?php if ($params->get('show_intro')) : ?>
+			<div class="introtext">
+				<?php echo $this->item->introtext; ?>
+			</div>
+		<?php endif; ?>
 		<div class="articletext">
 			<?php echo str_replace($this->item->introtext, '', $this->item->text); ?>
 		</div>
