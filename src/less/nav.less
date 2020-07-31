@@ -4,21 +4,6 @@
 	}
 }
 
-.bottom {
-	.nav {
-		margin: 0;
-		justify-content: flex-start;
-
-		li {
-			margin-left: 10px;
-		}
-
-		.current {
-			display: none;
-		}
-	}
-}
-
 .nav {
 	display: flex;
 	flex-grow: 2;
@@ -73,5 +58,20 @@
 		border-top: @primary-color solid 5px;
 		font-weight: bolder;
 		padding-top: 32px;
+	}
+}
+
+.bottom {
+	.nav {
+		margin: 0;
+		justify-content: flex-start;
+
+		li {
+			margin-left: 10px;
+		}
+
+		.current {
+			display: none;
+		}
 	}
 }

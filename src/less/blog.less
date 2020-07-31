@@ -1,81 +1,3 @@
-.projecten {
-	.items-row {
-		padding-top: 20px;
-		padding-bottom: 50px;
-	}
-
-	.item {
-		margin: 0 160px;
-
-		&:not(:last-child) {
-			border-bottom: 1px solid @primary-color;
-		}
-
-		.page-header {
-			h2 {
-				text-align: center;
-			}
-		}
-
-		.readmore {
-			text-align: center;
-			background: none;
-			box-shadow: none;
-
-			.btn {
-				.readmore();
-			}
-		}
-
-		.icons {
-			display: none;
-		}
-
-		.article-info {
-			text-align: center;
-			width: 100%;
-
-			.published {
-				margin-inline-start: 0;
-				color: @secondary-color;
-				text-transform: uppercase;
-			}
-		}
-
-		.fields-container {
-			text-align: center;
-			width: 100%;
-
-			.field-entry {
-				margin-inline-start: 0;
-				color: @secondary-color;
-				text-transform: uppercase;
-			}
-		}
-
-		.main {
-			display: flex;
-
-			.item-image {
-				flex-basis: 50%;
-
-				img {
-					max-width: 100%;
-				}
-			}
-
-			.introtext {
-				flex-basis: 50%;
-				margin-left: 50px;
-			}
-		}
-	}
-
-	.items-row:nth-child(2n) {
-		background-color: #f2f4f7;
-	}
-}
-
 .blog {
 	.blog-leden {
 		display: flex;
@@ -157,6 +79,84 @@
 			align-self: end;
 			margin: 0 0 10px 20px;
 		}
+	}
+}
+
+.projecten {
+	.items-row {
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+
+	.item {
+		margin: 0 160px;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid @primary-color;
+		}
+
+		.page-header {
+			h2 {
+				text-align: center;
+			}
+		}
+
+		.readmore {
+			text-align: center;
+			background: none;
+			box-shadow: none;
+
+			.btn {
+				.readmore();
+			}
+		}
+
+		.icons {
+			display: none;
+		}
+
+		.article-info {
+			text-align: center;
+			width: 100%;
+
+			.published {
+				margin-inline-start: 0;
+				color: @secondary-color;
+				text-transform: uppercase;
+			}
+		}
+
+		.fields-container {
+			text-align: center;
+			width: 100%;
+
+			.field-entry {
+				margin-inline-start: 0;
+				color: @secondary-color;
+				text-transform: uppercase;
+			}
+		}
+
+		.main {
+			display: flex;
+
+			.item-image {
+				flex-basis: 50%;
+
+				img {
+					max-width: 100%;
+				}
+			}
+
+			.introtext {
+				flex-basis: 50%;
+				margin-left: 50px;
+			}
+		}
+	}
+
+	.items-row:nth-child(2n) {
+		background-color: #f2f4f7;
 	}
 }
 
