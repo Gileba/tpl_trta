@@ -34,3 +34,27 @@
 .tooltip {
 	display: none !important;
 }
+
+.pager.pagenav {
+	display: grid; 
+	grid-template-columns: repeat(2, 1fr); 
+	grid-template-rows: 1fr; 
+	grid-column-gap: 0px;
+	grid-row-gap: 0px; 
+	grid-template-areas: "prev next";
+
+	li {
+		.readmore();
+		width: intrinsic;
+
+		&.next {
+			grid-area: next;
+			justify-self: end;
+		}
+
+		&.previous {
+			grid-area: prev;
+			width: fit-content; /* Chrome fix */
+		}
+	}
+}

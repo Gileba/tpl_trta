@@ -29,6 +29,7 @@ else
 	<form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="form-inline" role="search">
 		<?php
 			$output = '<label for="mod-search-searchword' . $module->id . '" class="element-invisible">' . $label . '</label> ';
+			$output .= '<i class=" fas fa-search"></i>';
 			$output .= '<input name="searchword" id="mod-search-searchword' . $module->id . '" maxlength="' . $maxlength . '"  
 				class="inputbox search-query input-medium" type="search"' . $width;
 			$output .= ' placeholder="' . $text . '" />';
@@ -63,7 +64,6 @@ else
 
 			echo $output;
 		?>
-		<i class=" fas fa-search"></i>
 		<input type="hidden" name="task" value="search" />
 		<input type="hidden" name="option" value="com_search" />
 		<input type="hidden" name="Itemid" value="<?php echo $mitemid; ?>" />

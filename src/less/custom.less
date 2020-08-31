@@ -10,6 +10,51 @@
 
 		.formintro {
 			margin-bottom: 50px;
+
+			&.columns {
+				column-count: 2;
+			}
+		}
+
+		.introtext {
+			.introtext();
+		}
+
+		.field {
+			.flex();
+			align-items: center;
+			justify-content: center;
+			margin-left: 100px;
+
+			label {
+				width: 120px;
+				align-self: flex-start;
+				margin-top: 10px;
+			}
+		}
+
+		input[type="text"], textarea {
+			max-width: 500px;
+		}
+		
+		.ui.button {
+			.readmore();
+			margin: 0 auto;
+		    display: block;
+			font-weight: normal;
+			font-family: "Montserrat", "Arial", sans-serif;
+		}
+
+		.ui.checkbox {
+			label {
+				width: 100%;
+			}
+		}
+	}
+
+	.ui {
+		&.message {
+			width: 80%;
 		}
 	}
 }

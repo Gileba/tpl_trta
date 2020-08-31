@@ -31,13 +31,11 @@
 }
 
 .bottom {
-	background-image: url(../images/bottom.svg);
+	background-image: url(/templates/tpl_trta/images/bottom.svg);
 	min-height: 25vw;
 	margin: -8vw 0 20px;
 	width: 100vw;
-	@media screen and (min-width: 940px) {
-		background-size: cover;
-	}
+	background-size: cover;
 
 	.bottom-content {
 		padding: 18vw 20px 0;
@@ -66,12 +64,16 @@
 					color: @secondary-color;
 				}
 
-				h4 {
+				h5 {
 					margin-top: 0;
+					font-weight: normal;
+					font-size: 1.3em;
 				}
 			}
 
 			&.leden {
+				margin-bottom: 20px;
+
 				.newsitem {
 					min-width: 200px;
 					width: ~"calc(24% - 10px)";
@@ -83,6 +85,8 @@
 
 					h5 {
 						margin: 0 20px;
+						font-weight: normal;
+						font-size: 1em;
 					}
 				}
 			}
@@ -98,7 +102,7 @@
 				padding: 0 0 20px 10px;
 				margin-bottom: 50px;
 				min-width: 200px;
-				width: ~"calc(24% - 10px)";
+				width: ~"calc(19% - 10px)";
 				list-style-type: none;
 				text-align: center;
 

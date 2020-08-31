@@ -33,7 +33,7 @@
 		<div class="offcanvas"><jdoc:include type="modules" name="offcanvas" /></div>
 		<div class="container">
 			<div class="top">
-				<div class="logo"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
+				<div class="logo"><a href="/"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></a></div>
 				<jdoc:include type="modules" name="top" />
 			</div>
 			<div class="content">

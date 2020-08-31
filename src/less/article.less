@@ -4,6 +4,48 @@
 	.introtext {
 		margin: 0;
 	}
+
+	.downloads {
+
+		& > div {
+			padding: 0 160px;
+		}
+
+		.background {
+			background-color: #f2f4f7;
+		}
+
+		h5 {
+			padding-top: 50px;
+			text-align: center;
+		}
+
+		.flex {
+			display: flex;
+			flex-wrap: wrap;
+
+			.grid {
+				display: grid;
+				grid-template-columns: 20px 250px 1fr 20px;
+				grid-template-areas: '. image text .';
+				width: 100%;
+				@media screen and (min-width: 1120px) {
+					max-width: 50%;
+				}
+				min-width: 400px;
+				box-sizing: border-box;
+
+				.image {
+					text-align: center;
+					grid-area: image;
+				}
+
+				.text {
+					grid-area: text;
+				}
+			}
+		}
+	}
 }
 
 .pull-none {
@@ -57,14 +99,13 @@
 		}
 
 		.introtext {
-			font-size: 1.5em;
-			margin: 50px 100px;
-			text-align: center;
+			.introtext();
 		}
 
 		.articletext {
 			.columns {
 				column-count: 2;
+				column-gap: 50px;
 			}
 
 			.images {
@@ -86,10 +127,6 @@
 
 			.link {
 				text-align: center;
-
-				a.readmore {
-					border: 1px solid @primary-color;
-				}
 			}
 		}
 
