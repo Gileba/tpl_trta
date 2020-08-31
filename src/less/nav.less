@@ -6,30 +6,30 @@
 }
 
 @media screen and (min-width: 1201px) {
-.nav {
-	display: flex;
-	flex-grow: 2;
-	justify-content: flex-end;
-	list-style-type: none;
-	margin: 0 40px;
-	padding-top: 0;
-	text-transform: uppercase;
+	.nav {
+		display: flex;
+		flex-grow: 2;
+		justify-content: flex-end;
+		list-style-type: none;
+		margin: 0 40px;
+		padding-top: 0;
+		text-transform: uppercase;
 
-	li {
-		padding-top: 37px;
-		margin-left: 50px;
-		width: 16%;
+		li {
+			padding-top: 37px;
+			margin-left: 50px;
+			width: 16%;
 
-		.nav-child {
-			position: absolute;
-			padding-inline-start: 0;
-			list-style-type: none;
-			padding: 30px 40px 20px;
-			margin-left: -100px;
-			z-index: 2;
-			background-color: white;
+			.nav-child {
+				position: absolute;
+				padding-inline-start: 0;
+				list-style-type: none;
+				padding: 30px 40px 20px;
+				margin-left: -100px;
+				z-index: 2;
+				background-color: white;
 
-			/*	Not properly functioning code for full width
+				/*	Not properly functioning code for full width
 
 			width: 100vw;
 			margin-left: -50vw;
@@ -38,30 +38,30 @@
 
 			*/
 
-			li {
-				margin-left: 30px;
-				padding-top: 5px;
-				border: none;
-				width: 100%;
+				li {
+					margin-left: 30px;
+					padding-top: 5px;
+					border: none;
+					width: 100%;
 
-				&:not(.active) {
-					font-weight: normal;
+					&:not(.active) {
+						font-weight: normal;
+					}
 				}
+			}
+
+			&:not(:hover) .nav-child {
+				display: none;
 			}
 		}
 
-		&:not(:hover) .nav-child {
-			display: none;
+		.active {
+			margin-top: 0;
+			border-top: @primary-color solid 5px;
+			font-weight: bolder;
+			padding-top: 32px;
 		}
 	}
-
-	.active {
-		margin-top: 0;
-		border-top: @primary-color solid 5px;
-		font-weight: bolder;
-		padding-top: 32px;
-	}
-}
 }
 
 .bottom {
@@ -105,15 +105,15 @@
 
 @media screen and (max-width: 1200px) {
 	.top {
-//		margin-left: 0;
-//		margin-right: 0;
-//		.logo div {
-//			margin-left: 0;
-//			margin-right: 0;
-//			img {
-//				max-width: 120px;
-//			}
-//		}
+		//		margin-left: 0;
+		//		margin-right: 0;
+		//		.logo div {
+		//			margin-left: 0;
+		//			margin-right: 0;
+		//			img {
+		//				max-width: 120px;
+		//			}
+		//		}
 		.customhamburger {
 			display: block;
 			position: fixed;
@@ -197,4 +197,3 @@
 		display: block;
 	}
 }
-
