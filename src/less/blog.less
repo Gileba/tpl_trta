@@ -158,23 +158,23 @@
 				}
 			}
 
+			.item-image {
+				grid-area: image;
+				display: flex;
+				height: 100%;
+				width: 170px;
+				justify-content: center;
+				align-items: center;
+				border-right: 2px @primary-color solid;
+
+				img {
+					max-width: 150px;
+					max-height: 150px;
+				}
+			}
+
 			h2 {
 				.hyphens(auto, after-white-space);
-			}
-		}
-
-		.item-image {
-			grid-area: image;
-			display: flex;
-			height: 100%;
-			width: 170px;
-			justify-content: center;
-			align-items: center;
-			border-right: 2px @primary-color solid;
-
-			img {
-				max-width: 150px;
-				max-height: 150px;
 			}
 		}
 
