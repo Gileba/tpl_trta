@@ -33,12 +33,16 @@
 		<div class="offcanvas"><jdoc:include type="modules" name="offcanvas" /></div>
 		<div class="container">
 			<div class="top">
-				<div class="logo"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
+				<div class="logo"><a href="/"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></a></div>
 				<jdoc:include type="modules" name="top" />
 			</div>
 			<div class="content">
 				<jdoc:include type="message" />
-				<div class="component"><jdoc:include type="component" /></div>
+				<div class="header"><jdoc:include type="modules" name="header" /></div>
+				<div class="component">
+					<jdoc:include type="component" />
+					<div class="bottomimage"></div>
+				</div>
 				<div class="bottom">
 					<div class="bottom-content"><jdoc:include type="modules" name="bottom" /></div>
 				</div>
@@ -47,5 +51,18 @@
 				<div class="logo"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
 				<jdoc:include type="modules" name="footer" /></div>
 		</div>
+		<script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/js/hamburger.js"></script>
+<?php	if ($this->params->get('analytics')) {	?>
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })
+			  (window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			  ga('create', '<?php	echo $this->params->get('analytics'); ?>', 'auto');
+			  ga('send', 'pageview');
+		  </script>
+<?php	}	?>
 	</body>
 </html>

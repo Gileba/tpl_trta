@@ -1,0 +1,95 @@
+/* Chronoforms 6 */
+.semanticui-body {
+	.form {
+		div:not(.image),
+		h1 {
+			@media screen and (max-width: 600px) {
+				margin-left: 20px;
+				margin-right: 20px;
+			}
+		}
+
+		h1 {
+			.h1();
+			.hyphens(auto, after-white-space);
+			text-align: center;
+		}
+
+		.formintro {
+			margin: 20px 80px 50px;
+
+			&.columns {
+				@media screen and (min-width: 600px) {
+					column-count: 2;
+				}
+			}
+		}
+
+		.introtext {
+			.introtext();
+		}
+
+		.field {
+			.flex();
+			align-items: center;
+			justify-content: center;
+			margin-left: 100px;
+			margin-right: 20px;
+
+			@media screen and (max-width: 600px) {
+				margin-left: 0;
+			}
+
+			label {
+				width: 120px;
+				align-self: flex-start;
+				margin-top: 10px;
+			}
+		}
+
+		input[type="text"],
+		textarea {
+			max-width: 500px;
+		}
+
+		.ui.button {
+			.readmore();
+			margin: 0 auto;
+			display: block;
+			font-weight: normal;
+			font-family: "Montserrat", "Arial", sans-serif;
+		}
+
+		.ui.checkbox {
+			label {
+				width: 100%;
+			}
+		}
+	}
+
+	.ui {
+		&.message {
+			width: 80%;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+
+	.flex-item {
+		margin-left: 0;
+		margin-right: 0;
+		flex-basis: 50%;
+
+		* {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	.flex-margin {
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+}

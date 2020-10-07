@@ -9,3 +9,25 @@
 	-moz-box-shadow: @string1, @string2;
 	box-shadow: @string1, @string2;
 }
+
+.hyphens(@string, @string2) {
+	-webkit-hyphens: @string;
+	-ms-hyphens: @string;
+	hyphens: @string;
+	.line-break(@string2);
+}
+
+.line-break(@string) {
+	-webkit-line-break: @string;
+	-ms-line-break: @string;
+	line-break: @string;
+}
+
+.introtext () {
+	font-size: 1.5em;
+	text-align: center;
+	margin: 50px 100px;
+	@media screen and (max-width: 800px) {
+		margin: 0;
+	}
+}
