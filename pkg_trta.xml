@@ -2,11 +2,11 @@
 <extension type="package" version="3.9.13" method="upgrade">
 	<name>TRTA Template Package</name>
 	<author>Gijs Lamon</author>
-	<creationDate>2020-04-03</creationDate>
+	<creationDate>2020-07-10</creationDate>
 	<packagename>trta</packagename>
-	<version>0.1.0</version>
+	<version>1.0.0</version>
 	<packager>Gijs Lamon</packager>
-	<infourl title="TRTA Template Package">https://github.com/Gileba/tpl_trta/releases/tag/0.1.0</infourl>
+	<infourl title="TRTA Template Package">https://github.com/Gileba/tpl_trta/releases/tag/1.0.0</infourl>
 	<description>Package containing the template and its dependancies for TRTA</description>
 	<files folder="packages">
 		<file type="template" id="trta" client="site">tpl_trta.zip</file>

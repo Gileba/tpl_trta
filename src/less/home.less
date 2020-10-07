@@ -50,6 +50,19 @@
     }
   }
 
+  .date {
+    color: #009ee2;
+    text-transform: uppercase;
+    text-align: center;
+    .hyphens(auto, after-white-space);
+
+    &.small {
+      @media screen and (max-width: 800px) {
+        margin-top: 20px;
+      }
+    }
+  }
+
   .card {
     .box-shadow(0 6px 9px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2));
     margin: 50px 100px;
@@ -112,19 +125,6 @@
 
   h3 {
     font-weight: lighter;
-  }
-
-  .date {
-    color: #009ee2;
-    text-transform: uppercase;
-    text-align: center;
-    .hyphens(auto, after-white-space);
-
-    &.small {
-      @media screen and (max-width: 800px) {
-        margin-top: 20px;
-      }
-    }
   }
 
   .heading {
