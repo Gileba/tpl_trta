@@ -1,9 +1,14 @@
 .blog {
+	.category-desc {
+		text-align: center;
+	}
+
 	.blog-leden {
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
 		margin: 0 auto 50px;
+		justify-content: center;
 
 		.item {
 			display: grid;
@@ -29,6 +34,37 @@
 				&:nth-child(8n+6), &:nth-child(8n+8) {
 					background-color: rgb(248,249,250);
 				}
+			}
+			@media screen and (min-width: 1080px) and (max-width: 1439px) {
+				&:nth-child(3n+2) {
+					.box-shadow(-4px 0 4px -6px #000000, 4px 0 4px -6px #000000);
+				}
+				&:nth-child(6n+4), &:nth-child(6n+6) {
+					background-color: rgb(239,241,245);
+				}
+				&:nth-child(6n+5) {
+					background-color: rgb(248,249,250);
+				}
+			}
+			@media screen and (min-width: 720px) and (max-width: 1079px) {
+				&:nth-child(2n) {
+					.box-shadow(-4px 0 4px -6px #000000, 4px 0 4px -6px #000000);
+				}
+				&:nth-child(4n+3) {
+					background-color: rgb(239,241,245);
+				}
+				&:nth-child(4n+4) {
+					background-color: rgb(248,249,250);
+				}
+			}
+			@media screen and (max-width: 719px) {
+				&:nth-child(2n) {
+					background-color: rgb(239,241,245);
+				}
+			}
+
+			h2 {
+				.hyphens(auto, after-white-space);
 			}
 		}
 
@@ -91,6 +127,10 @@
 	.item {
 		margin: 0 160px;
 
+		@media screen and (max-width: 800px) {
+			margin: 0 20px;
+		}
+
 		&:not(:last-child) {
 			border-bottom: 1px solid @primary-color;
 		}
@@ -98,6 +138,7 @@
 		.page-header {
 			h2 {
 				text-align: center;
+				.hyphens(auto, after-white-space);
 			}
 		}
 
@@ -138,7 +179,10 @@
 		}
 
 		.main {
-			display: flex;
+			@media screen and (min-width: 600px) {
+				display: flex;
+			}
+
 			align-items: center;
 
 			.item-image {
@@ -151,7 +195,12 @@
 
 			.introtext {
 				flex-basis: 50%;
-				margin-left: 50px;
+				@media screen and (min-width: 600px) {
+					margin-left: 50px;
+				}
+				@media screen and (max-width: 600px) {
+					margin-top: 20px;
+				}
 			}
 		}
 	}

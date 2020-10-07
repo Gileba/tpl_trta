@@ -24,4 +24,14 @@
 		<position>bottom</position>
 		<position>footer</position>
 	</positions>
+	<config>
+		<fields name="params">
+			<fieldset name="global">
+				<field name="useLESS" type="hidden" default="true" />
+			</fieldset>
+			<fieldset name="google">
+				<field name="analytics" type="textbox" default="" label="TPL_TRTA_ANALYTICS" description="TPL_TRTA_ANALYTICS_DESC" />
+			</fieldset>
+		</fields>
+	</config>
 </extension>

@@ -1,11 +1,15 @@
-.default {
+.zoeken {
 	h1 {
 		width: 100%;
 		text-align: center;
+		.hyphens(auto, after-white-space);
 	}
 
 	.component {
-		margin: 0px 100px;
+		margin: 0 100px;
+		@media screen and (max-width: 600px) {
+			margin: 0 10px;
+		}
 
 		.search {
 			form {

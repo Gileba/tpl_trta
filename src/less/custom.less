@@ -1,18 +1,27 @@
 /* Chronoforms 6 */
 .semanticui-body {
-	margin: 0 80px;
-
 	.form {
+
+		div:not(.image), h1 {
+			@media screen and (max-width: 600px) {
+				margin-left: 20px;
+				margin-right: 20px;
+			}
+		}
+
 		h1 {
-			font-size: 5em;
+			.h1();
+			.hyphens(auto, after-white-space);
 			text-align: center;
 		}
 
 		.formintro {
-			margin-bottom: 50px;
+			margin: 20px 80px 50px 80px;
 
 			&.columns {
-				column-count: 2;
+				@media screen and (min-width: 600px) {
+					column-count: 2;
+				}
 			}
 		}
 
@@ -25,6 +34,11 @@
 			align-items: center;
 			justify-content: center;
 			margin-left: 100px;
+			margin-right: 20px;
+
+			@media screen and (max-width: 600px) {
+				margin-left: 0;
+			}
 
 			label {
 				width: 120px;

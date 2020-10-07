@@ -1,0 +1,99 @@
+.offcanvas {
+	display: none;
+}
+
+.customhamburger {
+	display: none;
+}
+
+@media screen and (max-width: 1140px) {
+	.top {
+		.customhamburger {
+			display: block;
+			background-color: white;
+			z-index: 99;
+			height: 60px;
+		}
+	}
+
+	.offcanvas {
+		background-color: white;
+		top: 60px;
+		right: 0;
+		width: 60%;
+		z-index: 99;
+		flex: 1 0;
+		position: fixed;
+		margin: 0;
+		
+		.search {
+			margin: 10px 20px;
+
+			label {
+				display: none;
+			}
+
+			input[name=searchword] {
+				width: 120px;
+				margin-left: 10px;
+			}
+		}
+
+		ul.nav {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
+			text-align: left;
+			padding-inline-start: 10px;
+			max-height:80vh;
+			overflow-y: scroll;
+			text-transform: capitalize;
+			list-style: none;
+
+			li {
+				padding: 10px;
+
+				a {
+					color: @secondary-color;
+				}
+			}
+
+			li:first-child {
+				padding-top: 0;
+			}
+
+			li:last-child {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+
+			li.parent {
+				& > a {
+					border-bottom: 1px dashed white;
+				}
+
+				ul {
+					display: block;
+					padding-inline-start: 10px;
+					list-style-type: none;
+					margin-top: 10px;
+
+					li {
+						padding: 10px;
+					}
+				}
+			}
+
+			.active {
+				border-left: @primary-color solid 3px;
+				font-weight: bolder;
+			}
+		}
+		.customhamburger {
+			display: none;
+		}
+	}
+	.offcanvas.open {
+		display: block;
+	}
+}
