@@ -2,6 +2,10 @@
 	display: flex;
 	justify-content: space-between;
 
+	@media screen and (max-width: 600px) {
+		justify-content: flex-end;
+	}
+
 	div {
 		flex-basis: auto;
 	}
@@ -9,8 +13,13 @@
 	.logo {
 		flex-basis: content;
 		margin: 20px;
+
 		img {
 			max-height: 100px;
+		}
+		
+		@media screen and (max-width: 600px) {
+			width:100%
 		}
 	}
 
@@ -46,6 +55,18 @@
 			position: relative;
 			margin-right: -28px;
 			color: @primary-color;
+		}
+	}
+	
+	.mod-languages {
+		
+		ul {
+			min-width: 28px;
+			padding: 20px 5px 0 0;
+
+			li {
+				padding-top: 5px;
+			}
 		}
 	}
 }
