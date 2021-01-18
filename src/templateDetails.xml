@@ -7,7 +7,7 @@
 	<authorUrl>http://www.gileba.be/</authorUrl>
 	<copyright>(c) 2020 by Gileba</copyright>
 	<license>GNU/GPL</license>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>TRTA</description>
 	<files>
 		<filename>index.php</filename>
