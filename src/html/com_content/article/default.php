@@ -22,6 +22,10 @@ $info    = $params->get('info_block_position', 0);
 $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associations'));
 JHtml::_('behavior.caption');
 
+$currentDate       = JFactory::getDate()->format('Y-m-d H:i:s');
+$isNotPublishedYet = $this->item->publish_up > $currentDate;
+$isExpired         = $this->item->publish_down < $currentDate && $this->item->publish_down !== JFactory::getDbo()->getNullDate();
+
 ?>
 <?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
 <div class="item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
@@ -80,11 +84,11 @@ JHtml::_('behavior.caption');
 		<?php if ($this->item->state == 0) : ?>
 			<span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span>
 		<?php endif; ?>
-		<?php if (strtotime($this->item->publish_up) > strtotime(JFactory::getDate())) : ?>
+		<?php if ($isNotPublishedYet) : ?>
 			<span class="label label-warning"><?php echo JText::_('JNOTPUBLISHEDYET'); ?></span>
 		<?php endif; ?>
 		<?php
-		if ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate()))
+		if ($isExpired)
 			&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
 		) :
 			?>
