@@ -1,6 +1,6 @@
 .bottomimage {
 	min-height: 230px;
-	background-image: url("/templates/tpl_trta/images/bottom.svg");
+	background-image: url("../images/bottom.svg");
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	margin-top: -150px;
@@ -26,6 +26,10 @@
 	}
 }
 
+.flex .custom {
+	.flex();
+}
+
 .front {
 	padding: 50px 10px;
 
@@ -33,7 +37,7 @@
 		background-color: #f2f4f7;
 	}
 
-	* {
+	*:not(.custom) {
 		@media screen and (min-width: 600px) {
 			margin-left: 100px;
 			margin-right: 100px;
@@ -159,7 +163,7 @@
 }
 
 @media screen and (max-width: 1020px) {
-	.front.flex {
+	.front.flex, .front.flex .custom {
 		flex-wrap: wrap;
 
 		.flex-margin {
@@ -191,7 +195,7 @@
 }
 
 @media screen and (max-width: 800px) {
-	.front.flex {
+	.front.flex, .front.flex .custom {
 		.flex-item {
 			.projecten {
 				margin-left: 50px;

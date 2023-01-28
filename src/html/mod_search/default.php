@@ -30,13 +30,13 @@ else
 		<?php
 			$output = '<label for="mod-search-searchword' . $module->id . '" class="element-invisible">' . $label . '</label> ';
 			$output .= '<i class=" fas fa-search"></i>';
-			$output .= '<input name="searchword" id="mod-search-searchword' . $module->id . '" maxlength="' . $maxlength . '"  
+			$output .= '<input name="searchword" id="mod-search-searchword' . $module->id . '" maxlength="' . $maxlength . '"
 				class="inputbox search-query input-medium" type="search"' . $width;
 			$output .= ' placeholder="' . $text . '" />';
 
 		if ($button) :
 			if ($imagebutton) :
-				$btn_output = ' <input type="image" alt="' . $button_text . '" class="button" src="' . $img . '" 
+				$btn_output = ' <input type="image" alt="' . $button_text . '" class="button" src="' . $img . '"
 						onclick="this.form.searchword.focus();"/>';
 			else :
 					$btn_output = ' <button class="button btn btn-primary" onclick="this.form.searchword.focus();">' . $button_text . '</button>';

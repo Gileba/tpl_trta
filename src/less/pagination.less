@@ -1,4 +1,4 @@
-.pagination {
+.pagination, .com-content-category-blog__navigation {
 	margin-top: 50px;
 
 	.counter {
@@ -35,6 +35,11 @@
 			}
 		}
 
+		li.active a {
+			background-color: #00205c;
+			color: white;
+		}
+
 		@media screen and (max-width: 600px) {
 			.pagination-prev::after,
 			.pagination-next::before {
@@ -50,7 +55,7 @@
 	display: none !important;
 }
 
-.pager.pagenav {
+.pager.pagenav, .pagenavigation .pagination {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: 1fr;
@@ -58,7 +63,7 @@
 	grid-row-gap: 0px;
 	grid-template-areas: "prev next";
 
-	li {
+	li, a {
 		.readmore();
 		width: intrinsic;
 

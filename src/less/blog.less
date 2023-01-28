@@ -7,12 +7,20 @@
 	.item {
 		margin: 0 160px;
 
-		@media screen and (max-width: 800px) {
-			margin: 0 20px;
-		}
-
 		&:not(:last-child) {
 			border-bottom: 1px solid @primary-color;
+		}
+	}
+
+	.blog-item {
+		margin: 0;
+		padding: 20px 160px 50px;
+	}
+
+	.item, .blog-item {
+
+		@media screen and (max-width: 800px) {
+			margin: 0 20px;
 		}
 
 		.page-header {
@@ -50,6 +58,7 @@
 		.fields-container {
 			text-align: center;
 			width: 100%;
+			list-style: none;
 
 			.field-entry {
 				margin-inline-start: 0;
@@ -85,7 +94,7 @@
 		}
 	}
 
-	.items-row:nth-child(2n) {
+	.items-row:nth-child(2n), .blog-item:nth-child(2n) {
 		background-color: #f2f4f7;
 	}
 }

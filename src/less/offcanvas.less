@@ -2,18 +2,16 @@
 	display: none;
 }
 
-.customhamburger {
+.customhamburger, .top .hamburger {
 	display: none;
 }
 
 @media screen and (max-width: 1140px) {
-	.top {
-		.customhamburger {
+	.top .hamburger {
 			display: block;
 			background-color: white;
 			z-index: 99;
 			height: 60px;
-		}
 	}
 
 	.offcanvas {
@@ -89,7 +87,7 @@
 				font-weight: bolder;
 			}
 		}
-		.customhamburger {
+		.customhamburger, .custom .hamburger {
 			display: none;
 		}
 	}

@@ -19,7 +19,7 @@
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
    xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" >
    <head>
 		<jdoc:include type="head" />
@@ -30,26 +30,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body class="<?php echo $pageclass ? htmlspecialchars($pageclass) : 'default'; ?>">
-		<div class="offcanvas"><jdoc:include type="modules" name="offcanvas" /></div>
+		<div class="offcanvas"><jdoc:include type="modules" name="offcanvas" style="html5" /></div>
 		<div class="container">
 			<div class="top">
-				<div class="logo"><a href="/"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></a></div>
-				<jdoc:include type="modules" name="top" />
+				<div class="logo"><a href="/"><img src="templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></a></div>
+				<jdoc:include type="modules" name="top" style="html5" />
 			</div>
 			<div class="content">
 				<jdoc:include type="message" />
-				<div class="header"><jdoc:include type="modules" name="header" /></div>
+				<div class="header"><jdoc:include type="modules" name="header" style="html5" /></div>
 				<div class="component">
 					<jdoc:include type="component" />
 					<div class="bottomimage"></div>
 				</div>
 				<div class="bottom">
-					<div class="bottom-content"><jdoc:include type="modules" name="bottom" /></div>
+					<div class="bottom-content"><jdoc:include type="modules" name="bottom" style="html5" /></div>
 				</div>
 			</div>
 			<div class="footer">
-				<div class="logo"><img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
-				<jdoc:include type="modules" name="footer" /></div>
+				<div class="logo"><img src="templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" /></div>
+				<jdoc:include type="modules" name="footer" style="html5" /></div>
 		</div>
 		<script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/js/hamburger.js"></script>
 <?php	if ($this->params->get('analytics')) {	?>

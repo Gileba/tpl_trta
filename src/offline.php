@@ -47,7 +47,7 @@ $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
 		<div class="middle">
 			<div class="inner well">
 				<div class="header">
-					<img src="/templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" />
+					<img src="templates/tpl_trta/images/logo.png" alt="<?php echo $sitename ?>" />
 				<?php if ($app->get('display_offline_message', 1) == 1 && str_replace(' ', '', $app->get('offline_message')) !== '') : ?>
 					<p><?php echo $app->get('offline_message'); ?></p>
 				<?php elseif ($app->get('display_offline_message', 1) == 2) : ?>

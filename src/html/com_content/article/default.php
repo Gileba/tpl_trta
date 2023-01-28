@@ -20,16 +20,15 @@ $info    = $params->get('info_block_position', 0);
 
 // Check if associations are implemented. If they are, define the parameter.
 $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associations'));
-JHtml::_('behavior.caption');
 
 $currentDate       = JFactory::getDate()->format('Y-m-d H:i:s');
 $isNotPublishedYet = $this->item->publish_up > $currentDate;
-$isExpired         = $this->item->publish_down < $currentDate && $this->item->publish_down !== JFactory::getDbo()->getNullDate();
+$isExpired         = $this->item->publish_down < $currentDate && !is_null($this->item->publish_down);
 
 ?>
 <?php echo JLayoutHelper::render('joomla.content.full_image', $this->item); ?>
 <div class="item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
-	<meta itemprop="inLanguage" 
+	<meta itemprop="inLanguage"
 		content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />
 	<?php if ($this->params->get('show_page_heading')) : ?>
 	<div class="page-header">
@@ -72,7 +71,7 @@ $isExpired         = $this->item->publish_down < $currentDate && $this->item->pu
 	<?php
 	if ($useDefList && ($info == 0 || $info == 2)) :
 		// Todo: for Joomla4 joomla.content.info_block.block can be changed to joomla.content.info_block
-		echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));
+		echo JLayoutHelper::render('joomla.content.info_block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));
 	endif;
 	?>
 
@@ -88,9 +87,7 @@ $isExpired         = $this->item->publish_down < $currentDate && $this->item->pu
 			<span class="label label-warning"><?php echo JText::_('JNOTPUBLISHEDYET'); ?></span>
 		<?php endif; ?>
 		<?php
-		if ($isExpired)
-			&& $this->item->publish_down != JFactory::getDbo()->getNullDate()
-		) :
+		if ($isExpired) :
 			?>
 			<span class="label label-warning"><?php echo JText::_('JEXPIRED'); ?></span>
 		<?php endif; ?>

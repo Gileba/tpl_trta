@@ -64,8 +64,11 @@
 	.bottom-content {
 		color: white;
 
-		@media screen and (min-width: 1200px) {
-			.gil-flex-container();
+		&, & .moduletable {
+			@media screen and (min-width: 1200px) {
+				.gil-flex-container();
+			}
+			width: 100%;
 		}
 
 		.modtitle {

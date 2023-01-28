@@ -60,12 +60,18 @@
 
 	.mod-languages {
 
-		ul {
+		ul.lang-block {
 			min-width: 28px;
 			padding: 20px 5px 0 0;
 
 			li {
-				padding-top: 5px;
+				padding: 5px 0 0;
+				margin-left: 5px;
+				margin-right: 5px;
+
+				&.lang-active {
+					background-color: unset;
+				}
 			}
 		}
 	}
