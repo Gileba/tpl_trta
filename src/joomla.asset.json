@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "trta",
+  "version": "4.0.0",
+  "description": "TRTA Template",
+  "license": "GPL-2.0+",
+  "assets": [
+	{
+	  "name": "template.trta.base",
+	  "type": "style",
+	  "uri": "template.css",
+	  "dependencies": [
+		  "fontawesome"
+	  ]
+	},
+	{
+	  "name": "fontawesome",
+	  "type": "style",
+	  "uri": "system/joomla-fontawesome.min.css"
+	}
+  ]
+}
