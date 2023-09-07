@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 ?>
-<?php echo JLayoutHelper::render('joomla.content.info_block.publish_date', array('item' => $item, 'params' => $params, 'position' => 'below')); ?>
+<?php echo JLayoutHelper::render('joomla.content.info_block.publish_date', ['item' => $item, 'params' => $params, 'position' => 'below']); ?>
 
 <?php if ($params->get('item_title')) : ?>
 	<?php $item_heading = $params->get('item_heading', 'h4'); ?>
@@ -24,7 +24,7 @@ defined('_JEXEC') or die;
 	</<?php echo $item_heading; ?>>
 <?php endif; ?>
 
-<?php if ($params->get('img_intro_full') !== 'none' && !empty($item->imageSrc)) : ?>	
+<?php if ($params->get('img_intro_full') !== 'none' && !empty($item->imageSrc)) : ?>
 	<figure class="newsflash-image">
 		<img src="<?php echo $item->imageSrc; ?>" alt="<?php echo $item->imageAlt; ?>">
 		<?php if (!empty($item->imageCaption)) : ?>
